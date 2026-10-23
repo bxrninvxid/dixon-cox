@@ -7,7 +7,7 @@
 
 **Zero dependencies. Zero payments. Zero mourning voice. Infinite style.**
 
-[Live demo](#-put-it-online-in-60-seconds) · [Why I am the best](#-why-this-is-the-best-repo-you-will-open-today) · [Screenshots](#-look-at-it-go-on) · [Run it](#-run-it)
+[Live demo](#-put-it-online-in-60-seconds) · [Why I am the best](#-why-this-is-the-best-repo-you-will-open-today) · [Screenshots](#-look-at-it-go-on) 
 
 </div>
 
@@ -74,57 +74,6 @@ Every skin, in case you need to be convinced:
 <img src="docs/screenshots/skins.png" alt="All skins" width="100%">
 
 Stats and the live feed: [`docs/screenshots/feed.png`](docs/screenshots/feed.png).
-
-## 🚀 Put it online in 60 seconds
-
-You have two options. Both are free. Both are correct. Pick the one that makes you feel smartest.
-
-**Option A: the repo as-is (no build).**
-The source is native ES modules, so GitHub can serve it directly.
-1. Push this repo to GitHub.
-2. *Settings → Pages → Build and deployment → Deploy from a branch → `main` / `/ (root)`.*
-3. Done. Your demo lives at `https://<you>.github.io/<repo>/`.
-
-**Option B: the Actions pipeline (tests, then build, then deploy).**
-1. Push to `main`.
-2. *Settings → Pages → Source: **GitHub Actions**.*
-3. `.github/workflows/pages.yml` runs the tests, the i18n check and the build, then deploys `dist/`.
-
-**Option C: one file.** Run `npm run build` and take `dist/dixon-cox-demo.html`. It is the entire app: JS, CSS and fonts inlined. Open it by double-click, host it anywhere, attach it to an email.
-
-## 🛠 Run it
-
-You need Node 20+. You do not need `npm install`. There is nothing to install.
-
-```bash
-node scripts/serve.mjs      # dev server on http://localhost:5173 (or: npm start)
-npm test                    # 37 tests, node:test, no framework
-npm run check:i18n          # every t('...') must exist in the Ukrainian dictionary
-npm run build               # dist/ site + dist/dixon-cox-demo.html
-```
-
-## 🧠 How it is built
-
-```
-index.html
-src/
-  main.js            boot: store, i18n, router, shell
-  pages/             12 page modules: (ctx) => { render, handlers, after?, destroy? }
-  ui/                shell, components, cards, icons, fx (confetti, toast, tooltip), PNG/SVG exporter
-  art/               urn renderer (shapes, skins, engraving), city map, charts, remix + merch art
-  api/               mockApi.js (async, persisted in localStorage, simulated latency) + seed data
-  lib/               view layer, router, store, i18n, pricing, QR encoder, tribute writer, share links
-  data/catalog.js    everything you can buy, every drop point, every FAQ
-  locales/uk.js      Ukrainian
-scripts/             serve, build (mini bundler), check-i18n
-tests/               node:test suites
-```
-
-- **View layer** (`src/lib/view.js`): auto-escaping `html` tagged templates, a DOM morpher that keeps focus, scroll and half-typed input alive between renders, and delegated events via `data-on-click="handlerName"`. About 100 lines.
-- **Urn engine** (`src/art/urn.js`): a pure function, `design → SVG string`. Same input, same urn, byte for byte. Runs in Node, which is how the tests render all 72 shape and skin combinations.
-- **Backend seam** (`src/api/mockApi.js`): every call the UI makes is an `async` function there. To go real, re-implement that one file against a server. The demo clock runs fast on purpose: an order finishes in about two and a half minutes so you can watch the whole timeline.
-- **i18n**: gettext style. The English string is the key, `t('Book now')`. Data files mark strings with `_()` so the checker can find them.
-- **No cycles, no default exports, no dynamic imports.** That is the contract that lets a 120-line build script bundle everything correctly.
 
 ## 📜 Honest print
 
