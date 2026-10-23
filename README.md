@@ -7,7 +7,7 @@
 
 **Zero dependencies. Zero payments. Zero mourning voice. Infinite style.**
 
-[Live demo](#-put-it-online-in-60-seconds) · [Why I am the best](#-why-this-is-the-best-repo-you-will-open-today) · [Screenshots](#-look-at-it-go-on) 
+[Live demo](https://bxrninvxid.github.io/dixon-cox/#/) · [Why I am the best](#-why-this-is-the-best-repo-you-will-open-today) · [Screenshots](#-look-at-it-go-on) 
 
 </div>
 
