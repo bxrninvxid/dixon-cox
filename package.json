@@ -1,0 +1,15 @@
+{
+  "name": "dixon-cox",
+  "version": "1.0.0",
+  "description": "Dixon Cox: the loudest fast-cremation service on Earth. A zero-dependency demo app (no payments, no real cremations).",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test",
+    "check:i18n": "node scripts/check-i18n.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
